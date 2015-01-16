@@ -8,3 +8,4 @@ Follow this steps to start a new machine:
 - Adapt README.md
 - Adapt module name in `generateDocs.ps1`
 - Push to Git, create the TeamCity build configuration, ...
+- Write code, write docs, write tests
