@@ -23,12 +23,17 @@ function New-ScProject
     )
     Process
     {
-        $TemplateLocation = (Resolve-Path $TemplateLocation).Path
-        if(Test-Path $OutputLocation) {
-            Write-Error "$OutputLocation allready exists."
+        $TemplateLocation = (Resolve-Path $TemplateLocation).Path.TrimEnd("\")
+
+        if(-not (Test-Path $OutputLocation)) {
+            mkdir $OutputLocation
         }
-        mkdir $OutputLocation
-        $OutputLocation = (Resolve-Path $OutputLocation).Path
+
+        if((ls $OutputLocation).Length -gt 0) {
+            Write-Error "$OutputLocation is not empty."
+        }
+
+        $OutputLocation = (Resolve-Path $OutputLocation).Path.TrimEnd("\")
 
         ls $TemplateLocation -Directory -Recurse  | % {
             $newFolderName = $_.FullName.Replace($TemplateLocation, $OutputLocation)
