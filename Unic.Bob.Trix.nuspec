@@ -10,6 +10,6 @@
         <description>Trix is responsible for bootstrapping new projects and modules.</description>
     </metadata>
     <files>
-        <file src="src" target="" />
+        <file src="src\**" target="" />
     </files>
 </package>
