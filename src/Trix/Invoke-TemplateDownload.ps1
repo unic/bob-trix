@@ -1,12 +1,28 @@
 <#
 .SYNOPSIS
+Downloads a boilerplate from git.unic.com.
 
 .DESCRIPTION
+Downloads a boilerplate from git.unic.com. It will use the "download as ZIP"
+functionality and extract it to the specified location.
 
+.PARAMETER Project
+The name of the Stash project where the project is located.
 
-.PARAMETER
+.PARAMETER Repository
+The name of the Stash repository where the project is located.
+
+.PARAMETER OutputLocation
+The folder where the boilerplate will be placed.
+
+.PARAMETER Credential
+The credentials used to connect to git.unic.com
+
+.PARAMETER Branch
+The branch of the boilerplate to use.
 
 .EXAMPLE
+Invoke-TemplateDownload -Project BUECS -Repository sitecore-boilerplate -OutputLocation D:\temp\sitecore-boilerplate 
 
 #>
 function Invoke-TemplateDownload

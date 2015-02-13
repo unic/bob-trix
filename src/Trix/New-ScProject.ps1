@@ -12,12 +12,16 @@ in the file content and all file and folder names.
 The location to the template.
 
 .PARAMETER Replacements
-A hashtable of replacements to use.
+A hashtable of replacements to use. It will always use the PascalCase and
+camelCase of a replacement. This means when @{"Customer"="Unic"} all instances
+of Customer will be replaced by Unic and all instances of customer will be
+replaced by unic.
 
 .PARAMETER OutputLocation
 The folder where the resulting project will be written to.
 
 .EXAMPLE
+New-ScProject -TemplateLocation D:\bob-boilerplate -Replacements @{"Customer" = "Unic"} -OutputLocation D:\unic-website
 
 #>
 function New-ScProject

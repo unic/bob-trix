@@ -1,13 +1,17 @@
 <#
 .SYNOPSIS
+Returns a PascalCase and camelCase version of every passed replacement.
 
 .DESCRIPTION
+Returns a PascalCase and camelCase version of every passed replacement.
+So if @{"Customer"="Unic"} is passed @{"Customer"="Unic"; "customer" = "unic"}
+is returned.
 
-
-.PARAMETER
+.PARAMETER  Replacements
+A PowerShell hashtable of replacements to return.
 
 .EXAMPLE
-
+Resolve-ScReplacements @{"Customer"="Unic"}
 #>
 function Resolve-ScReplacements
 {

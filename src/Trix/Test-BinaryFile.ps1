@@ -1,3 +1,17 @@
+<#
+.SYNOPSIS
+Tests if a specific file is a binary file or a text file.
+
+.DESCRIPTION
+Tests if a specific file is a binary file or a text file.
+
+.PARAMETER  Path
+The path to the file to test.
+
+.EXAMPLE
+Test-BinaryFile test.txt
+
+#>
 function Test-BinaryFile
 {
     [CmdletBinding()]
