@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Unic.Bob.Trix</id>
+        <authors>Unic AG</authors>
+        <version>$VERSION$</version>
+        <owners>Unic AG</owners>
+        <iconUrl>https://www.unic.com/img/unic-logo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Trix is responsible for bootstrapping new projects and modules.</description>
+    </metadata>
+    <files>
+        <file src="src\**" target="" />
+        <file src="packages\**" target="tools" />
+    </files>
+</package>

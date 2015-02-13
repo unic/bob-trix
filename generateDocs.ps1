@@ -2,7 +2,7 @@ param($username, $password, [switch]$Buildserver)
 
 $PSScriptRoot = split-path -parent $MyInvocation.MyCommand.Definition
 
-$module = "MyModuleName"
+$module = "Trix"
 
 Import-Module "$PSScriptRoot\packages\Unic.Bob.Keith\Keith"
 Import-Module "$PSScriptRoot\src\$module" -Force
