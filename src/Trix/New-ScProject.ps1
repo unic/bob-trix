@@ -3,10 +3,9 @@
 Creates a new instance of Sitecore project or module based on a specific template.
 
 .DESCRIPTION
-Creates a new instance of Sitecore project or module based on a specific template
-by coping all folders and all folders and replacing the specified replacements
-in the file content and all file and folder names.
-
+Creates a new instance of Sitecore project or module based on a specific
+template by copying all folders and replacing the specified replacements in
+the file content and all file and folder names.  
 
 .PARAMETER TemplateLocation
 The location to the template.
