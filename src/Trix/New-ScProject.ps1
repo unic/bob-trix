@@ -37,7 +37,7 @@ function New-ScProject
     )
     Process
     {
-        $TemplateLocation = (Resolve-Path $TemplateLocation).Path.TrimEnd("\")
+        $TemplateLocation = (Get-Item (Resolve-Path $TemplateLocation).Path).FullName
 
         if(-not (Test-Path $OutputLocation)) {
             mkdir $OutputLocation
@@ -47,7 +47,7 @@ function New-ScProject
             Write-Error "$OutputLocation is not empty."
         }
 
-        $OutputLocation = (Resolve-Path $OutputLocation).Path.TrimEnd("\")
+        $OutputLocation = (Get-Item (Resolve-Path $OutputLocation).Path).FullName
 
         $fixedReplacements = Resolve-ScReplacements $Replacements
 
