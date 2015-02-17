@@ -5,7 +5,7 @@ Creates a new instance of Sitecore project or module based on a specific templat
 .DESCRIPTION
 Creates a new instance of Sitecore project or module based on a specific
 template by copying all folders and replacing the specified replacements in
-the file content and all file and folder names.  
+the file content and all file and folder names.
 
 .PARAMETER TemplateLocation
 The location to the template.
@@ -52,15 +52,16 @@ function New-ScProject
         $fixedReplacements = Resolve-ScReplacements $Replacements
 
         ls $TemplateLocation -Directory -Recurse  | % {
-            $newFolderName = $_.FullName.Replace($TemplateLocation, $OutputLocation)
-            $fixedReplacements.Keys | %{Write-Host $_; $newFolderName = $newFolderName.Replace($_, $fixedReplacements[$_])}
+            $relativeName = $_.FullName.Replace($TemplateLocation, "")
+            $fixedReplacements.Keys | %{$relativeName = $relativeName.Replace($_, $fixedReplacements[$_])}
+            $newFolderName = "$OutputLocation\$relativeName"
             if(-not (Test-Path $newFolderName)) { mkdir $newFolderName }
         }
 
         foreach($file in (ls $TemplateLocation -Recurse -File).FullName) {
-            $newFileName = $file.Replace($TemplateLocation, $OutputLocation)
-            $fixedReplacements.Keys | %{$newFileName = $newFileName.Replace($_, $fixedReplacements[$_])}
-
+            $relativeName = $file.Replace($TemplateLocation, "")
+            $fixedReplacements.Keys | %{$relativeName = $relativeName.Replace($_, $fixedReplacements[$_])}
+            $newFileName = "$OutputLocation\$relativeName"
             if(-not (Test-BinaryFile $file)) {
                 $content = (Get-Content $file | Out-String)
                 $fixedReplacements.Keys | %{$content = $content.Replace($_, $fixedReplacements[$_])}
