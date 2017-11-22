@@ -1,4 +1,5 @@
 source https://nuget.org/api/v2
 
+nuget Pester
 nuget Unic.Bob.Keith
 nuget Unic.Bob.Rubble
